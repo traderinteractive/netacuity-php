@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+use DominionEnterprises\NetAcuity\NetAcuity;
+use DominionEnterprises\Util;
+use Socket\Raw\Factory as SocketFactory;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+Util::ensure(4, $argc, "Usage: {$argv[0]} NETACUITY_URI API_ID IP_ADDRESS");
+$netAcuityUri = $argv[1];
+$apiId = $argv[2];
+$ipAddress = $argv[3];
+
+$socketFactory = new SocketFactory();
+$socket = $socketFactory->createClient($netAcuityUri);
+$socket->setOption(SOL_SOCKET, SO_RCVTIMEO, array('sec' => 1, 'usec' => 0));
+$socket->setOption(SOL_SOCKET, SO_SNDTIMEO, array('sec' => 1, 'usec' => 0));
+
+$client = new NetAcuity($socket, $apiId);
+echo json_encode($client->getGeo($ipAddress));
+
