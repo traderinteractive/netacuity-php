@@ -10,21 +10,15 @@ if ($returnStatus !== 0) {
 
 require 'vendor/autoload.php';
 
-passthru('./vendor/bin/phpcs --standard=PSR1 -n src tests *.php', $returnStatus);
-if ($returnStatus !== 0) {
+$phpcsCLI = new PHP_CodeSniffer_CLI();
+$phpcsArguments = array('standard' => array('PSR1'), 'files' => array('src', 'tests', 'build.php'), 'warningSeverity' => 0);
+$phpcsViolations = $phpcsCLI->process($phpcsArguments);
+if ($phpcsViolations > 0) {
     exit(1);
 }
 
 $phpunitConfiguration = PHPUnit_Util_Configuration::getInstance(__DIR__ . '/phpunit.xml');
-$phpunitArguments = array(
-    'reportUselessTests' => true,
-    'strictCoverage' => true,
-    'disallowTestOutput' => true,
-    'enforceTimeLimit' => true,
-    'disallowTodoAnnotatedTests' => true,
-    'coverageHtml' => 'coverage',
-    'configuration' => $phpunitConfiguration,
-);
+$phpunitArguments = array('coverageHtml' => __DIR__ . '/coverage', 'configuration' => $phpunitConfiguration);
 $testRunner = new PHPUnit_TextUI_TestRunner();
 $result = $testRunner->doRun($phpunitConfiguration->getTestSuiteConfiguration(), $phpunitArguments);
 if (!$result->wasSuccessful()) {

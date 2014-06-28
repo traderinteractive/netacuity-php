@@ -1,14 +1,13 @@
 # NetAcuity
 A PHP client for NetAcuity, a geoip lookup service.
 
-[![Build Status](https://travis-ci.org/dominionenterprises/netacuity-php.png)](https://travis-ci.org/dominionenterprises/netacuity-php)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/?branch=master)
+[![Build Status](http://img.shields.io/travis/dominionenterprises/netacuity-php.svg?style=flat)](https://travis-ci.org/dominionenterprises/netacuity-php)
+[![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/dominionenterprises/netacuity-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/)
+[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/dominionenterprises/netacuity-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/)
 
-[![Latest Stable Version](https://poser.pugx.org/dominionenterprises/netacuity/v/stable.png)](https://packagist.org/packages/dominionenterprises/netacuity)
-[![Total Downloads](https://poser.pugx.org/dominionenterprises/netacuity/downloads.png)](https://packagist.org/packages/dominionenterprises/netacuity)
-[![Latest Unstable Version](https://poser.pugx.org/dominionenterprises/netacuity/v/unstable.png)](https://packagist.org/packages/dominionenterprises/netacuity)
-[![License](https://poser.pugx.org/dominionenterprises/netacuity/license.png)](https://packagist.org/packages/dominionenterprises/netacuity)
+[![Latest Stable Version](http://img.shields.io/packagist/v/dominionenterprises/netacuity.svg?style=flat)](https://packagist.org/packages/dominionenterprises/netacuity)
+[![Total Downloads](http://img.shields.io/packagist/dt/dominionenterprises/netacuity.svg?style=flat)](https://packagist.org/packages/dominionenterprises/netacuity)
+[![License](http://img.shields.io/packagist/l/dominionenterprises/netacuity.svg?style=flat)](https://packagist.org/packages/dominionenterprises/netacuity)
 
 ## Requirements
 This library requires PHP 5.3, or newer.
