@@ -11,7 +11,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=5.3.2",
+        "php": "~5.4",
         "dominionenterprises/util": "~1.4",
         "clue/socket-raw": "~1.0",
         "ext-sockets": "*"
