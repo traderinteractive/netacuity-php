@@ -10,7 +10,7 @@ A PHP client for NetAcuity, a geoip lookup service.
 [![License](http://img.shields.io/packagist/l/dominionenterprises/netacuity.svg?style=flat)](https://packagist.org/packages/dominionenterprises/netacuity)
 
 ## Requirements
-This library requires PHP 5.3, or newer.
+This library requires PHP 5.4, or newer.
 
 ## Installation
 This package uses [composer](https://getcomposer.org) so you can just add
