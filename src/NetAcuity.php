@@ -23,7 +23,7 @@ final class NetAcuity
      */
     public function __construct(Socket $socket, $apiId)
     {
-        Util::throwIfNotType(array('int' => $apiId));
+        Util::throwIfNotType(['int' => $apiId]);
 
         $this->_socket = $socket;
         $this->_apiId = $apiId;
@@ -56,12 +56,12 @@ final class NetAcuity
      */
     public function getGeo($ip)
     {
-        Util::throwIfNotType(array('string' => $ip), true);
+        Util::throwIfNotType(['string' => $ip], true);
 
         $response = $this->_query($this->_buildQuery(3, $ip));
         return $this->_parseResponse(
             $response,
-            array(
+            [
                 'country',
                 'region',
                 'city',
@@ -77,7 +77,7 @@ final class NetAcuity
                 'city-code',
                 'continent-code',
                 'two-letter-country',
-            )
+            ]
         );
     }
 
@@ -91,7 +91,7 @@ final class NetAcuity
      */
     private function _buildQuery($databaseId, $ip)
     {
-        Util::throwIfNotType(array('string' => $ip, 'int' => $databaseId), true);
+        Util::throwIfNotType(['string' => $ip, 'int' => $databaseId], true);
 
         return sprintf("%d;%d;%s\r\n", $databaseId, $this->_apiId, $ip);
     }
@@ -107,7 +107,7 @@ final class NetAcuity
      */
     private function _query($query)
     {
-        Util::throwIfNotType(array('string' => $query), true);
+        Util::throwIfNotType(['string' => $query], true);
 
         $this->_socket->write($query);
 
@@ -127,8 +127,8 @@ final class NetAcuity
      */
     private function _parseResponse($response, array $fields)
     {
-        Util::throwIfNotType(array('string' => $response), true);
-        Util::throwIfNotType(array('string' => $fields), true);
+        Util::throwIfNotType(['string' => $response], true);
+        Util::throwIfNotType(['string' => $fields], true);
 
         $responseData = explode(';', $response);
         Util::ensure(count($fields), count($responseData));
