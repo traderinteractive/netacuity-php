@@ -33,7 +33,7 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
      */
     public function getGeo()
     {
-        $socket = $this->getMockBuilder('\Socket\Raw\Socket')->disableOriginalConstructor()->setMethods(array('write', 'read'))->getMock();
+        $socket = $this->getMockBuilder('\Socket\Raw\Socket')->disableOriginalConstructor()->setMethods(['write', 'read'])->getMock();
         $socket->expects($this->once())->method('write')->with("3;1;1.2.3.4\r\n")->will($this->returnValue(13));
         $socket->expects($this->once())->method('read')->with(1024)->will(
             $this->returnValue('xxxxUSA;something;reserved;broadband;5;4;3;2;123.456;789.101;112;1314;1516;1;USxxx')
@@ -42,7 +42,7 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
         $client = new NetAcuity($socket, 1);
 
         $this->assertSame(
-            array(
+            [
                 'country' => 'USA',
                 'region' => 'something',
                 'city' => 'reserved',
@@ -58,7 +58,7 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
                 'city-code' => '1516',
                 'continent-code' => '1',
                 'two-letter-country' => 'US',
-            ),
+            ],
             $client->getGeo('1.2.3.4')
         );
     }
