@@ -3,7 +3,7 @@ A PHP client for NetAcuity, a geoip lookup service.
 
 [![Build Status](http://img.shields.io/travis/dominionenterprises/netacuity-php.svg?style=flat)](https://travis-ci.org/dominionenterprises/netacuity-php)
 [![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/dominionenterprises/netacuity-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/)
-[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/dominionenterprises/netacuity-php.svg?style=flat)](https://scrutinizer-ci.com/g/dominionenterprises/netacuity-php/)
+[![Code Coverage](http://img.shields.io/coveralls/dominionenterprises/netacuity-php.svg?style=flat)](https://coveralls.io/r/dominionenterprises/netacuity-php)
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/dominionenterprises/netacuity.svg?style=flat)](https://packagist.org/packages/dominionenterprises/netacuity)
 [![Total Downloads](http://img.shields.io/packagist/dt/dominionenterprises/netacuity.svg?style=flat)](https://packagist.org/packages/dominionenterprises/netacuity)
