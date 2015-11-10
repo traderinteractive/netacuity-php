@@ -41,24 +41,30 @@ final class NetAcuity
      *     @type string $region
      *     @type string $city
      *     @type string $conn-speed
-     *     @type string $country-conf
-     *     @type string $region-conf
-     *     @type string $city-conf
      *     @type string $metro-code
      *     @type string $latitude
      *     @type string $longitude
+     *     @type string $postal-code
      *     @type string $country-code
      *     @type string $region-code
      *     @type string $city-code
      *     @type string $continent-code
      *     @type string $two-letter-country
+     *     @type string $internal-code
+     *     @type string $area-code
+     *     @type string $country-conf
+     *     @type string $region-conf
+     *     @type string $city-conf
+     *     @type string $postal-conf
+     *     @type string $gmt-offset
+     *     @type string $in-dist
      * }
      */
     public function getGeo($ip)
     {
         Util::throwIfNotType(['string' => $ip], true);
 
-        $response = $this->_query($this->_buildQuery(3, $ip));
+        $response = $this->_query($this->_buildQuery(4, $ip));
         return $this->_parseResponse(
             $response,
             [
@@ -66,17 +72,23 @@ final class NetAcuity
                 'region',
                 'city',
                 'conn-speed',
-                'country-conf',
-                'region-conf',
-                'city-conf',
                 'metro-code',
                 'latitude',
                 'longitude',
+                'zip-code',
                 'country-code',
                 'region-code',
                 'city-code',
                 'continent-code',
                 'two-letter-country',
+                'internal-code',
+                'area-code',
+                'country-conf',
+                'region-conf',
+                'city-conf',
+                'postal-conf',
+                'gmt-offset',
+                'in-dist',
             ]
         );
     }
