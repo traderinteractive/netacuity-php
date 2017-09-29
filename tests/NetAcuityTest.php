@@ -36,7 +36,7 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
         $socket = $this->getMockBuilder('\Socket\Raw\Socket')->disableOriginalConstructor()->setMethods(['write', 'read'])->getMock();
         $socket->expects($this->once())->method('write')->with("4;1;1.2.3.4\r\n")->will($this->returnValue(13));
         $socket->expects($this->once())->method('read')->with(1024)->will(
-            $this->returnValue('xxxxUSA;something;reserved;broadband;2;123.456;789.101;12345;112;1314;1516;1;US;1;123;2;3;4;5;6;7xxx')
+            $this->returnValue('xxxxUSA;something;reserved;broadband;2;123.456;789.101;12345;112;1314;1516;1;US;1;123;2;3;4;5;6;7;UTCxxx')
         );
 
         $client = new NetAcuity($socket, 1);
@@ -64,6 +64,7 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
                 'postal-conf' => '5',
                 'gmt-offset' => '6',
                 'in-dist' => '7',
+                'timezone-name' => 'UTC',
             ],
             $client->getGeo('1.2.3.4')
         );

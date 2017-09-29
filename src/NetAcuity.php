@@ -58,6 +58,7 @@ final class NetAcuity
      *     @type string $postal-conf
      *     @type string $gmt-offset
      *     @type string $in-dist
+     *     @type string $timezone-name
      * }
      */
     public function getGeo($ip)
@@ -89,6 +90,7 @@ final class NetAcuity
                 'postal-conf',
                 'gmt-offset',
                 'in-dist',
+                'timezone-name',
             ]
         );
     }
