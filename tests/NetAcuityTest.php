@@ -5,6 +5,8 @@ use PHPUnit_Framework_TestCase;
 
 /**
  * @coversDefaultClass \DominionEnterprises\NetAcuity\NetAcuity
+ * @covers ::__construct
+ * @covers ::<private>
  */
 final class NetAcuityTest extends PHPUnit_Framework_TestCase
 {
@@ -25,11 +27,7 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
      * Verify that geo lookup works.
      *
      * @test
-     * @covers ::__construct
      * @covers ::getGeo
-     * @covers ::_buildQuery
-     * @covers ::_query
-     * @covers ::_parseResponse
      */
     public function getGeo()
     {
@@ -74,7 +72,6 @@ final class NetAcuityTest extends PHPUnit_Framework_TestCase
      * Verify that ip address must be a string.
      *
      * @test
-     * @covers ::__construct
      * @covers ::getGeo
      * @expectedException InvalidArgumentException
      */
