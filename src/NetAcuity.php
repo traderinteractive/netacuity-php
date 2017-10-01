@@ -144,9 +144,19 @@ final class NetAcuity
         Util::throwIfNotType(['string' => $response], true);
         Util::throwIfNotType(['string' => $fields], true);
 
-        $responseData = explode(';', $response);
-        Util::ensure(count($fields), count($responseData));
+        $numberOfExpectedFields = count($fields);
 
-        return array_combine($fields, $responseData);
+        $responseData = explode(';', $response);
+        $numberOfResponseFields = count($responseData);
+        //Netacuity has a history of adding fields without notice, ensure that there are at lease
+        //$numberOfFields values
+        Util::ensure(
+            true,
+            $numberOfResponseFields >= $numberOfExpectedFields,
+            '\\UnexpectedValueException',
+            ["Net acuity returned less than {$numberOfExpectedFields} fields"]
+        );
+
+        return array_combine($fields, array_slice($responseData, 0, $numberOfExpectedFields));
     }
 }
