@@ -148,8 +148,8 @@ final class NetAcuity
 
         $responseData = explode(';', $response);
         $numberOfResponseFields = count($responseData);
-        //Netacuity has a history of adding fields without notice, ensure that there are at lease
-        //$numberOfFields values
+        //Netacuity has a history of adding fields without notice
+        //Ensure that there are at least numberOfFields values returned.
         Util::ensure(
             true,
             $numberOfResponseFields >= $numberOfExpectedFields,
