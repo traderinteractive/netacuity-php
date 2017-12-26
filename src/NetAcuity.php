@@ -2,31 +2,60 @@
 namespace DominionEnterprises\NetAcuity;
 
 use DominionEnterprises\Util;
-use Socket\Raw\Socket;
+use Exception;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Request;
 
 /**
  * A client to access a NetAcuity server for geoip lookup.
  */
 final class NetAcuity
 {
-    /** @type \Socket\Raw\Socket The NetAcuity socket. */
-    private $_socket;
+    /**
+     * @var string Net Acuity's Edge DB Code.
+     */
+    const NETACUITY_EDGE_DB_ID = 4;
 
-    /** @type int The API Id identifying your client. */
-    private $_apiId;
+    /**
+     * A Collection of implemented DBs referred to by the NetAcuity DB Id.
+     */
+    const IMPLEMENTED_DBS = [
+        self::NETACUITY_EDGE_DB_ID
+    ];
+
+    /**
+     * @var string The API User token provided by NetAcuity.
+     */
+    private $_apiUserToken;
+
+    /**
+     * @var Client The Guzzle Client to be used.
+     */
+    private $_client;
+
+    /**
+     * @var string The NetAcuity database to fetch data from.
+     */
+    private $_dbId;
 
     /**
      * Create the NetAcuity client.
      *
-     * @param \Socket\Raw\Socket $socket The NetAcuity socket.
-     * @param int $apiId The API Id identifying your client.
+     * @param ClientInterface $client       The guzzle client to be used. Needs no configuration from the calling application.
+     * @param string          $apiUserToken The passed in API User Token specific to the calling application or organization.
+     * @param string          $dbIdentifier The netacuity database identifier, ex: NetAcuity::NETACUITY_EDGE_DB_ID
      */
-    public function __construct(Socket $socket, $apiId)
+    public function __construct(ClientInterface $client, string $apiUserToken, string $dbIdentifier)
     {
-        Util::throwIfNotType(['int' => $apiId]);
+        if (!in_array($dbIdentifier, self::IMPLEMENTED_DBS)) {
+            throw new Exception("NetAcuity DB Identifier: {$dbIdentifier} not yet supported by this tool.");
+        }
 
-        $this->_socket = $socket;
-        $this->_apiId = $apiId;
+        $this->_client = $client;
+        $this->_apiUserToken = $apiUserToken;
+        $this->_dbId = $dbIdentifier;
     }
 
     /**
@@ -61,102 +90,89 @@ final class NetAcuity
      *     @type string $timezone-name
      * }
      */
-    public function getGeo($ip)
+    public function getGeo(string $ip)
     {
         Util::throwIfNotType(['string' => $ip], true);
 
-        $response = $this->_query($this->_buildQuery(4, $ip));
-        return $this->_parseResponse(
-            $response,
-            [
-                'country',
-                'region',
-                'city',
-                'conn-speed',
-                'metro-code',
-                'latitude',
-                'longitude',
-                'zip-code',
-                'country-code',
-                'region-code',
-                'city-code',
-                'continent-code',
-                'two-letter-country',
-                'internal-code',
-                'area-code',
-                'country-conf',
-                'region-conf',
-                'city-conf',
-                'postal-conf',
-                'gmt-offset',
-                'in-dist',
-                'timezone-name',
-            ]
-        );
+        $queryString = $this->_buildQuery($this->_apiUserToken, self::NETACUITY_EDGE_DB_ID, $ip);
+        $request = new Request('GET', $queryString);
+
+        $body = [];
+        try {
+            $response = $this->_client->send($request);
+            $body = json_decode($response->getBody()->getContents(), true);
+        } catch (ClientException $e) {
+            $this->_handleGuzzleException($e);
+        }
+
+        return $this->_parseBody($body);
+    }
+
+    private function _buildQuery(string $userToken, string $db, string $ip, bool $asJson = true) : string
+    {
+        $baseUrl = 'https://usa.cloud.netacuity.com/webservice/query';
+        $asJsonString = $asJson ? 'true' : 'false';
+        return "{$baseUrl}?u={$userToken}&dbs={$db}&ip={$ip}&json={$asJsonString}";
     }
 
     /**
-     * Builds the query to NetAcuity.
+     * @param ClientException $e The thrown exception for handling.
      *
-     * @param int $databaseId The database id to query.
-     * @param string $ip The ip address to lookup.
-     *
-     * @return string The formatted query string.
+     * @throws Exception A formatted exception masking the API User Token in the event that it becomes invalid.
      */
-    private function _buildQuery($databaseId, $ip)
+    private function _handleGuzzleException(ClientException $e)
     {
-        Util::throwIfNotType(['string' => $ip, 'int' => $databaseId], true);
+        $response = $e->getResponse();
+        $code = $response->getStatusCode();
 
-        return sprintf("%d;%d;%s\r\n", $databaseId, $this->_apiId, $ip);
-    }
+        if ($code === 403) {
+            throw new Exception('NetAcuity API rejected the provided api user token.', $code);
+        }
 
-    /**
-     * Executes the query against NetAcuity and returns the unformatted response.
-     *
-     * Failures will be raised as exceptions.
-     *
-     * @param string $query The formatted query string.
-     *
-     * @return string The response from NetAcuity.
-     */
-    private function _query($query)
-    {
-        Util::throwIfNotType(['string' => $query], true);
+        $error = json_decode($response->getBody()->getContents(), true);
+        $reason = Util\Arrays::getNested($error, 'error.message');
 
-        $this->_socket->write($query);
-
-        // Remove the first 4 bytes (size data) and the last 3 bytes (standard footer)
-        $response = substr($this->_socket->read(1024), 4, -3);
-
-        return $response;
+        throw new Exception("NetAcuity API rejected the request, Reason: {$reason}", $code);
     }
 
     /**
      * Parses the response into an array using the field definition.
      *
-     * @param string $response The response from NetAcuity.
-     * @param array $fields The expected fields in the response.
+     * @param array $response The response from NetAcuity.
      *
      * @return array The response where the keys are from $fields and the values are from the $response.
+     * @throws Exception
      */
-    private function _parseResponse($response, array $fields)
+    private function _parseBody(array $response)
     {
-        Util::throwIfNotType(['string' => $response], true);
-        Util::throwIfNotType(['string' => $fields], true);
+        $responseData = Util\Arrays::get($response, 'response');
+        $edgeTranslations = [
+            'area-code' => 'edge-area-codes',
+            'city' => 'edge-city',
+            'city-code' => 'edge-city-code',
+            'city-conf' => 'edge-city-conf',
+            'conn-speed' => 'edge-conn-speed',
+            'continent-code' => 'edge-continent-code',
+            'country' => 'edge-country',
+            'country-code' => 'edge-country-code',
+            'country-conf' => 'edge-country-conf',
+            'gmt-offset' => 'edge-gmt-offset',
+            'in-dist' => 'edge-in-dst',
+            'latitude' => 'edge-latitude',
+            'longitude' => 'edge-longitude',
+            'metro-code' => 'edge-metro-code',
+            'postal-conf' => 'edge-postal-conf',
+            'region' => 'edge-region',
+            'region-code' => 'edge-region-code',
+            'region-conf' => 'edge-region-conf',
+            'timezone-name' => 'edge-timezone-name',
+            'two-letter-country' => 'edge-two-letter-country',
+            'zip-code' => 'edge-postal-code',
+        ];
 
-        $numberOfExpectedFields = count($fields);
+        $result = [];
+        Util\Arrays::copyIfKeysExist($responseData, $result, $edgeTranslations);
 
-        $responseData = explode(';', $response);
-        $numberOfResponseFields = count($responseData);
-        //Netacuity has a history of adding fields without notice
-        //Ensure that there are at least numberOfFields values returned.
-        Util::ensure(
-            true,
-            $numberOfResponseFields >= $numberOfExpectedFields,
-            '\\UnexpectedValueException',
-            ["Net acuity returned less than {$numberOfExpectedFields} fields"]
-        );
-
-        return array_combine($fields, array_slice($responseData, 0, $numberOfExpectedFields));
+        return $result;
     }
 }

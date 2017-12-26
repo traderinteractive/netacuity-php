@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a3fce7a6da3d664f4f4ae131cfe3b2d9",
-    "content-hash": "f5e6c6520e68d6e0e97cfa47a004c81c",
+    "content-hash": "5230b2b1926b17d683ed9981360ef411",
     "packages": [
         {
             "name": "clue/socket-raw",
@@ -57,19 +56,19 @@
                 "udp",
                 "unix"
             ],
-            "time": "2015-03-18 23:48:01"
+            "time": "2015-03-18T23:48:01+00:00"
         },
         {
             "name": "dominionenterprises/util",
             "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dominionenterprises/util-php.git",
+                "url": "https://github.com/traderinteractive/util-php.git",
                 "reference": "8e7c3c5182fbf0bd8eb25c8ef5a799b5346b98fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dominionenterprises/util-php/zipball/8e7c3c5182fbf0bd8eb25c8ef5a799b5346b98fb",
+                "url": "https://api.github.com/repos/traderinteractive/util-php/zipball/8e7c3c5182fbf0bd8eb25c8ef5a799b5346b98fb",
                 "reference": "8e7c3c5182fbf0bd8eb25c8ef5a799b5346b98fb",
                 "shasum": ""
             },
@@ -117,19 +116,19 @@
             "keywords": [
                 "utility"
             ],
-            "time": "2016-05-25 13:56:27"
+            "time": "2016-05-25T13:56:27+00:00"
         },
         {
             "name": "dominionenterprises/util-arrays",
             "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dominionenterprises/util-arrays-php.git",
+                "url": "https://github.com/traderinteractive/util-arrays-php.git",
                 "reference": "d69cadea3698b01d35fe2bd8ef9d974d115894e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dominionenterprises/util-arrays-php/zipball/d69cadea3698b01d35fe2bd8ef9d974d115894e9",
+                "url": "https://api.github.com/repos/traderinteractive/util-arrays-php/zipball/d69cadea3698b01d35fe2bd8ef9d974d115894e9",
                 "reference": "d69cadea3698b01d35fe2bd8ef9d974d115894e9",
                 "shasum": ""
             },
@@ -173,19 +172,19 @@
                 "array",
                 "utility"
             ],
-            "time": "2016-05-24 18:15:26"
+            "time": "2016-05-24T18:15:26+00:00"
         },
         {
             "name": "dominionenterprises/util-file",
             "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dominionenterprises/util-file-php.git",
+                "url": "https://github.com/traderinteractive/util-file-php.git",
                 "reference": "e00a72d1978af15c1d049edd10ff2e9add4913bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dominionenterprises/util-file-php/zipball/e00a72d1978af15c1d049edd10ff2e9add4913bf",
+                "url": "https://api.github.com/repos/traderinteractive/util-file-php/zipball/e00a72d1978af15c1d049edd10ff2e9add4913bf",
                 "reference": "e00a72d1978af15c1d049edd10ff2e9add4913bf",
                 "shasum": ""
             },
@@ -230,19 +229,19 @@
                 "file",
                 "utility"
             ],
-            "time": "2016-05-24 18:59:20"
+            "time": "2016-05-24T18:59:20+00:00"
         },
         {
             "name": "dominionenterprises/util-http",
             "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dominionenterprises/util-http-php.git",
+                "url": "https://github.com/traderinteractive/util-http-php.git",
                 "reference": "a2233b80a89886029448ea1d2f281f3da98aad1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dominionenterprises/util-http-php/zipball/a2233b80a89886029448ea1d2f281f3da98aad1a",
+                "url": "https://api.github.com/repos/traderinteractive/util-http-php/zipball/a2233b80a89886029448ea1d2f281f3da98aad1a",
                 "reference": "a2233b80a89886029448ea1d2f281f3da98aad1a",
                 "shasum": ""
             },
@@ -286,19 +285,19 @@
                 "http",
                 "utility"
             ],
-            "time": "2016-05-24 18:17:20"
+            "time": "2016-05-24T18:17:20+00:00"
         },
         {
             "name": "dominionenterprises/util-string",
             "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dominionenterprises/util-string-php.git",
+                "url": "https://github.com/traderinteractive/util-string-php.git",
                 "reference": "773216c837873c8b2b4b4a02282426e257b7eaec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dominionenterprises/util-string-php/zipball/773216c837873c8b2b4b4a02282426e257b7eaec",
+                "url": "https://api.github.com/repos/traderinteractive/util-string-php/zipball/773216c837873c8b2b4b4a02282426e257b7eaec",
                 "reference": "773216c837873c8b2b4b4a02282426e257b7eaec",
                 "shasum": ""
             },
@@ -342,19 +341,19 @@
                 "string",
                 "utility"
             ],
-            "time": "2016-05-24 18:00:00"
+            "time": "2016-05-24T18:00:00+00:00"
         },
         {
             "name": "dominionenterprises/util-time",
             "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/dominionenterprises/util-time-php.git",
+                "url": "https://github.com/traderinteractive/util-time-php.git",
                 "reference": "177cbbbc693b0453036e649b9c0e74bd09d34622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dominionenterprises/util-time-php/zipball/177cbbbc693b0453036e649b9c0e74bd09d34622",
+                "url": "https://api.github.com/repos/traderinteractive/util-time-php/zipball/177cbbbc693b0453036e649b9c0e74bd09d34622",
                 "reference": "177cbbbc693b0453036e649b9c0e74bd09d34622",
                 "shasum": ""
             },
@@ -398,7 +397,238 @@
                 "time",
                 "utility"
             ],
-            "time": "2016-05-24 19:04:00"
+            "time": "2016-05-24T19:04:00+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2017-06-22T18:50:49+00:00"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20T10:07:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06T14:39:51+00:00"
         }
     ],
     "packages-dev": [
@@ -454,7 +684,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "guzzle/guzzle",
@@ -549,7 +779,8 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-03-18 18:23:50"
+            "abandoned": "guzzlehttp/guzzle",
+            "time": "2015-03-18T18:23:50+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -591,7 +822,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2015-11-20 12:04:31"
+            "time": "2015-11-20T12:04:31+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -640,7 +871,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2015-02-03 12:10:50"
+            "time": "2015-02-03T12:10:50+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -702,7 +933,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2016-02-15 07:46:21"
+            "time": "2016-02-15T07:46:21+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -765,7 +996,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-05-25 06:48:21"
+            "time": "2016-05-25T06:48:21+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -812,7 +1043,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2015-06-21 13:08:43"
+            "time": "2015-06-21T13:08:43+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -853,7 +1084,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -897,7 +1128,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2016-05-12 18:03:57"
+            "time": "2016-05-12T18:03:57+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -946,7 +1177,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-09-15 10:49:45"
+            "time": "2015-09-15T10:49:45+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -1021,7 +1252,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-05-11 13:28:45"
+            "time": "2016-05-11T13:28:45+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1077,7 +1308,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-04-20 14:39:26"
+            "time": "2016-04-20T14:39:26+00:00"
         },
         {
             "name": "psr/log",
@@ -1115,7 +1346,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
             "name": "satooshi/php-coveralls",
@@ -1183,7 +1414,7 @@
                 "github",
                 "test"
             ],
-            "time": "2013-05-04 08:07:33"
+            "time": "2013-05-04T08:07:33+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1228,7 +1459,7 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
-            "time": "2016-02-13 06:45:14"
+            "time": "2016-02-13T06:45:14+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -1292,7 +1523,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2015-07-26 15:48:44"
+            "time": "2015-07-26T15:48:44+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -1344,7 +1575,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08 07:14:41"
+            "time": "2015-12-08T07:14:41+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -1394,7 +1625,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-05-17 03:18:57"
+            "time": "2016-05-17T03:18:57+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -1460,7 +1691,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-06-21 07:55:53"
+            "time": "2015-06-21T07:55:53+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -1511,7 +1742,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2015-10-12 03:26:01"
+            "time": "2015-10-12T03:26:01+00:00"
         },
         {
             "name": "sebastian/object-enumerator",
@@ -1557,7 +1788,7 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "time": "2016-01-28 13:25:10"
+            "time": "2016-01-28T13:25:10+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -1610,7 +1841,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2015-11-11 19:50:13"
+            "time": "2015-11-11T19:50:13+00:00"
         },
         {
             "name": "sebastian/resource-operations",
@@ -1652,7 +1883,7 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
-            "time": "2015-07-28 20:34:47"
+            "time": "2015-07-28T20:34:47+00:00"
         },
         {
             "name": "sebastian/version",
@@ -1695,7 +1926,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2016-02-04 12:56:52"
+            "time": "2016-02-04T12:56:52+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -1770,7 +2001,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-12-04 22:32:15"
+            "time": "2014-12-04T22:32:15+00:00"
         },
         {
             "name": "symfony/config",
@@ -1823,7 +2054,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-20 18:53:54"
+            "time": "2016-04-20T18:53:54+00:00"
         },
         {
             "name": "symfony/console",
@@ -1883,7 +2114,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-28 09:48:42"
+            "time": "2016-04-28T09:48:42+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1943,7 +2174,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-03 18:59:18"
+            "time": "2016-05-03T18:59:18+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -1992,7 +2223,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-04-12 18:09:53"
+            "time": "2016-04-12T18:09:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2051,7 +2282,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -2100,7 +2331,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:55:57"
+            "time": "2016-03-04T07:55:57+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -2149,7 +2380,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:55:57"
+            "time": "2016-03-04T07:55:57+00:00"
         }
     ],
     "aliases": [],
