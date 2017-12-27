@@ -24,5 +24,8 @@
     },
     "autoload": {
         "psr-4": { "DominionEnterprises\\NetAcuity\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "DominionEnterprises\\NetAcuity\\Tests\\": "tests/" }
     }
 }
