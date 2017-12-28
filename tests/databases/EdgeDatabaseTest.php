@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hotline-emu
- * Date: 12/27/17
- * Time: 3:29 PM
- */
 
 namespace DominionEnterprises\NetAcuity\Databases\Tests;
 
