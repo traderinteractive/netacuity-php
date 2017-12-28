@@ -1,21 +1,29 @@
-#!/usr/bin/env php
+#!/usr/bin/php
 <?php
+
+use DominionEnterprises\NetAcuity\Databases\EdgeDatabase;
+use DominionEnterprises\NetAcuity\Databases\PulseDatabase;
 use DominionEnterprises\NetAcuity\NetAcuity;
 use DominionEnterprises\Util;
-use Socket\Raw\Factory as SocketFactory;
+use GuzzleHttp\Client;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-Util::ensure(4, $argc, "Usage: {$argv[0]} NETACUITY_URI API_ID IP_ADDRESS");
-$netAcuityUri = $argv[1];
-$apiId = $argv[2];
+$userToken = $argv[1];
+$dbIdentifier = $argv[2];
 $ipAddress = $argv[3];
+Util::ensureNot(true, empty($userToken) , 'User Token parameter at position 1 is required');
+Util::ensureNot(true, empty($userToken) , 'Database Identifier parameter at position 2 is required');
+Util::ensureNot(true, empty($ipAddress) , 'IP Address parameter at position 3 is required');
 
-$socketFactory = new SocketFactory();
-$socket = $socketFactory->createClient($netAcuityUri);
-$socket->setOption(SOL_SOCKET, SO_RCVTIMEO, array('sec' => 1, 'usec' => 0));
-$socket->setOption(SOL_SOCKET, SO_SNDTIMEO, array('sec' => 1, 'usec' => 0));
+if ($dbIdentifier === '4') {
+    $database = new EdgeDatabase(new Client(), $userToken);
+} elseif ($dbIdentifier === '26') {
+    $database = new PulseDatabase(new Client(), $userToken);
+} else {
+    throw new Exception("Database Identifier ({$dbIdentifier}) is either invalid or not yet supported.");
+}
 
-$client = new NetAcuity($socket, $apiId);
-echo json_encode($client->getGeo($ipAddress));
+$client = new NetAcuity($database);
 
+echo var_export($client->getGeo($ipAddress), true);

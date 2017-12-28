@@ -3,7 +3,7 @@
 chdir(__DIR__);
 
 $returnStatus = null;
-passthru('composer install', $returnStatus);
+passthru('composer install --optimize-autoloader', $returnStatus);
 if ($returnStatus !== 0) {
     exit(1);
 }

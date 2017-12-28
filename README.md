@@ -15,3 +15,10 @@ This library requires PHP 5.4, or newer.
 ## Installation
 This package uses [composer](https://getcomposer.org) so you can just add
 `dominionenterprises/netacuity` as a dependency to your `composer.json` file.
+
+## User Testing  
+This package includes a test script in the `/bin` directory.  
+To test this script from the `/bin` (assuming all composer dependencies hasve been installed) directory run:  
+```sh
+./netacuity your_user_token the_database_id the_ip_address_to_check
+```

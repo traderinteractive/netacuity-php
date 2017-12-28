@@ -1,32 +1,31 @@
 <?php
+
 namespace DominionEnterprises\NetAcuity;
 
+use DominionEnterprises\NetAcuity\Databases\NetAcuityDatabaseInterface;
 use DominionEnterprises\Util;
-use Socket\Raw\Socket;
+use Exception;
 
 /**
- * A client to access a NetAcuity server for geoip lookup.
+ * A client to access a NetAcuity server for geo-ip lookup.
  */
 final class NetAcuity
 {
-    /** @type \Socket\Raw\Socket The NetAcuity socket. */
-    private $_socket;
-
-    /** @type int The API Id identifying your client. */
-    private $_apiId;
+    /**
+     * @var NetAcuityDatabaseInterface The Net Acuity Database to fetch data from.
+     */
+    private $_database;
 
     /**
      * Create the NetAcuity client.
      *
-     * @param \Socket\Raw\Socket $socket The NetAcuity socket.
-     * @param int $apiId The API Id identifying your client.
+     * @param NetAcuityDatabaseInterface $database     The Net Acuity Database to be used.
+     *
+     * @throws Exception
      */
-    public function __construct(Socket $socket, $apiId)
+    public function __construct(NetAcuityDatabaseInterface $database)
     {
-        Util::throwIfNotType(['int' => $apiId]);
-
-        $this->_socket = $socket;
-        $this->_apiId = $apiId;
+        $this->_database = $database;
     }
 
     /**
@@ -50,7 +49,6 @@ final class NetAcuity
      *     @type string $city-code
      *     @type string $continent-code
      *     @type string $two-letter-country
-     *     @type string $internal-code
      *     @type string $area-code
      *     @type string $country-conf
      *     @type string $region-conf
@@ -61,102 +59,9 @@ final class NetAcuity
      *     @type string $timezone-name
      * }
      */
-    public function getGeo($ip)
+    public function getGeo(string $ip)
     {
         Util::throwIfNotType(['string' => $ip], true);
-
-        $response = $this->_query($this->_buildQuery(4, $ip));
-        return $this->_parseResponse(
-            $response,
-            [
-                'country',
-                'region',
-                'city',
-                'conn-speed',
-                'metro-code',
-                'latitude',
-                'longitude',
-                'zip-code',
-                'country-code',
-                'region-code',
-                'city-code',
-                'continent-code',
-                'two-letter-country',
-                'internal-code',
-                'area-code',
-                'country-conf',
-                'region-conf',
-                'city-conf',
-                'postal-conf',
-                'gmt-offset',
-                'in-dist',
-                'timezone-name',
-            ]
-        );
-    }
-
-    /**
-     * Builds the query to NetAcuity.
-     *
-     * @param int $databaseId The database id to query.
-     * @param string $ip The ip address to lookup.
-     *
-     * @return string The formatted query string.
-     */
-    private function _buildQuery($databaseId, $ip)
-    {
-        Util::throwIfNotType(['string' => $ip, 'int' => $databaseId], true);
-
-        return sprintf("%d;%d;%s\r\n", $databaseId, $this->_apiId, $ip);
-    }
-
-    /**
-     * Executes the query against NetAcuity and returns the unformatted response.
-     *
-     * Failures will be raised as exceptions.
-     *
-     * @param string $query The formatted query string.
-     *
-     * @return string The response from NetAcuity.
-     */
-    private function _query($query)
-    {
-        Util::throwIfNotType(['string' => $query], true);
-
-        $this->_socket->write($query);
-
-        // Remove the first 4 bytes (size data) and the last 3 bytes (standard footer)
-        $response = substr($this->_socket->read(1024), 4, -3);
-
-        return $response;
-    }
-
-    /**
-     * Parses the response into an array using the field definition.
-     *
-     * @param string $response The response from NetAcuity.
-     * @param array $fields The expected fields in the response.
-     *
-     * @return array The response where the keys are from $fields and the values are from the $response.
-     */
-    private function _parseResponse($response, array $fields)
-    {
-        Util::throwIfNotType(['string' => $response], true);
-        Util::throwIfNotType(['string' => $fields], true);
-
-        $numberOfExpectedFields = count($fields);
-
-        $responseData = explode(';', $response);
-        $numberOfResponseFields = count($responseData);
-        //Netacuity has a history of adding fields without notice
-        //Ensure that there are at least numberOfFields values returned.
-        Util::ensure(
-            true,
-            $numberOfResponseFields >= $numberOfExpectedFields,
-            '\\UnexpectedValueException',
-            ["Net acuity returned less than {$numberOfExpectedFields} fields"]
-        );
-
-        return array_combine($fields, array_slice($responseData, 0, $numberOfExpectedFields));
+        return $this->_database->fetch($ip);
     }
 }
