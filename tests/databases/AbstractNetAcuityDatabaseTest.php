@@ -51,7 +51,7 @@ final class AbstractNetAcuityDatabaseTest extends NetAcuityTestSuite
         $mockClient->method('send')->willReturn($mockResponse);
 
         $database = new EdgeDatabase($mockClient, 'a token');
-        $actual = $database->fetch('192.1681.1');
+        $actual = $database->fetch('192.168.1.1');
 
         $expected = [
             'area-code' => '540',
