@@ -31,8 +31,10 @@ final class EdgeDatabase extends AbstractNetAcuityDatabase
             'country' => 'edge-country',
             'country-code' => 'edge-country-code',
             'country-conf' => 'edge-country-conf',
+            'county' => 'edge-county',
             'gmt-offset' => 'edge-gmt-offset',
             'in-dist' => 'edge-in-dst',
+            'ip' => 'ip',
             'latitude' => 'edge-latitude',
             'longitude' => 'edge-longitude',
             'metro-code' => 'edge-metro-code',
@@ -41,6 +43,7 @@ final class EdgeDatabase extends AbstractNetAcuityDatabase
             'region-code' => 'edge-region-code',
             'region-conf' => 'edge-region-conf',
             'timezone-name' => 'edge-timezone-name',
+            'transaction-id' => 'trans-id',
             'two-letter-country' => 'edge-two-letter-country',
             'zip-code' => 'edge-postal-code',
         ];
