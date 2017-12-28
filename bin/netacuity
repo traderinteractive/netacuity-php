@@ -1,0 +1,29 @@
+#!/usr/bin/php
+<?php
+
+use DominionEnterprises\NetAcuity\Databases\EdgeDatabase;
+use DominionEnterprises\NetAcuity\Databases\PulseDatabase;
+use DominionEnterprises\NetAcuity\NetAcuity;
+use DominionEnterprises\Util;
+use GuzzleHttp\Client;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+$userToken = $argv[1];
+$dbIdentifier = $argv[2];
+$ipAddress = $argv[3];
+Util::ensureNot(true, empty($userToken) , 'User Token parameter at position 1 is required');
+Util::ensureNot(true, empty($userToken) , 'Database Identifier parameter at position 2 is required');
+Util::ensureNot(true, empty($ipAddress) , 'IP Address parameter at position 3 is required');
+
+if ($dbIdentifier === '4') {
+    $database = new EdgeDatabase(new Client(), $userToken);
+} elseif ($dbIdentifier === '26') {
+    $database = new PulseDatabase(new Client(), $userToken);
+} else {
+    throw new Exception("Database Identifier ({$dbIdentifier}) is either invalid or not yet supported.");
+}
+
+$client = new NetAcuity($database);
+
+echo var_export($client->getGeo($ipAddress), true);
