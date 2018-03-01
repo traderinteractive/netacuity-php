@@ -5,9 +5,9 @@ namespace DominionEnterprises\NetAcuity\Tests;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-abstract class NetAcuityTestSuite extends PHPUnit_Framework_TestCase
+abstract class NetAcuityTestSuite extends TestCase
 {
     /**
      * @return \PHPUnit_Framework_MockObject_MockObject|Client
