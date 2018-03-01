@@ -1,5 +1,5 @@
 {
-    "name": "dominionenterprises/netacuity",
+    "name": "traderinteractive/netacuity",
     "description": "A client for NetAcuity, a geoip lookup service.",
     "keywords": ["geoip", "netacuity"],
     "authors": [
