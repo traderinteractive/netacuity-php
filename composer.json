@@ -1,5 +1,5 @@
 {
-    "name": "dominionenterprises/netacuity",
+    "name": "traderinteractive/netacuity",
     "description": "A client for NetAcuity, a geoip lookup service.",
     "keywords": ["geoip", "netacuity"],
     "authors": [
@@ -10,20 +10,23 @@
         }
     ],
     "license": "MIT",
+    "config": {
+        "sort-packages": true
+    },
     "require": {
         "php": "^7.0",
-        "dominionenterprises/util": "~2.0",
+        "dominionenterprises/util": "^2.0",
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "~5.0",
-        "satooshi/php-coveralls": "^2.0",
-        "squizlabs/php_codesniffer": "~1.5"
+        "php-coveralls/php-coveralls": "^1.0",
+        "phpunit/phpunit": "^6.0",
+        "squizlabs/php_codesniffer": "^3.2"
     },
     "autoload": {
-        "psr-4": { "DominionEnterprises\\NetAcuity\\": "src" }
+        "psr-4": { "TraderInteractive\\NetAcuity\\": "src" }
     },
     "autoload-dev": {
-        "psr-4": { "DominionEnterprises\\NetAcuity\\Tests\\": "tests" }
+        "psr-4": { "TraderInteractive\\NetAcuity\\Tests\\": "tests" }
     }
 }

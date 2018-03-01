@@ -1,13 +1,13 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases\Tests;
+namespace TraderInteractive\NetAcuity\Databases\Tests;
 
-use DominionEnterprises\NetAcuity\Databases\EdgeDatabase;
-use DominionEnterprises\NetAcuity\Tests\NetAcuityTestSuite;
+use TraderInteractive\NetAcuity\Databases\EdgeDatabase;
+use TraderInteractive\NetAcuity\Tests\NetAcuityTestSuite;
 use Exception;
 
 /**
- * @coversDefaultClass \DominionEnterprises\NetAcuity\Databases\AbstractNetAcuityDatabase
+ * @coversDefaultClass \TraderInteractive\NetAcuity\Databases\AbstractNetAcuityDatabase
  * @covers ::__construct
  * @covers ::<protected>
  * @covers ::<private>

@@ -1,6 +1,6 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases;
+namespace TraderInteractive\NetAcuity\Databases;
 
 use GuzzleHttp\ClientInterface;
 
@@ -19,9 +19,9 @@ final class EdgeDatabase extends AbstractNetAcuityDatabase
     {
         parent::__construct($client, $apiUserToken);
 
-        $this->_databaseIdentifier = 4;
+        $this->databaseIdentifier = 4;
 
-        $this->_translations = [
+        $this->translations = [
             'area-code' => 'edge-area-codes',
             'city' => 'edge-city',
             'city-code' => 'edge-city-code',

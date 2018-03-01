@@ -1,6 +1,6 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases;
+namespace TraderInteractive\NetAcuity\Databases;
 
 use GuzzleHttp\ClientInterface;
 
@@ -10,9 +10,9 @@ class PulseDatabase extends AbstractNetAcuityDatabase
     {
         parent::__construct($client, $apiUserToken);
 
-        $this->_databaseIdentifier = 26;
+        $this->databaseIdentifier = 26;
 
-        $this->_translations = [
+        $this->translations = [
             'area-code' => 'pulse-area-codes',
             'city' => 'pulse-city',
             'city-code' => 'pulse-city-code',

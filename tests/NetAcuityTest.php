@@ -1,10 +1,11 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Tests;
-use DominionEnterprises\NetAcuity\NetAcuity;
+namespace TraderInteractive\NetAcuity\Tests;
+
+use TraderInteractive\NetAcuity\NetAcuity;
 
 /**
- * @coversDefaultClass \DominionEnterprises\NetAcuity\NetAcuity
+ * @coversDefaultClass \TraderInteractive\NetAcuity\NetAcuity
  * @covers ::__construct
  */
 final class NetAcuityTest extends NetAcuityTestSuite
