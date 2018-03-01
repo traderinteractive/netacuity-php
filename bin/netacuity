@@ -1,9 +1,9 @@
 #!/usr/bin/php
 <?php
 
-use DominionEnterprises\NetAcuity\Databases\EdgeDatabase;
-use DominionEnterprises\NetAcuity\Databases\PulseDatabase;
-use DominionEnterprises\NetAcuity\NetAcuity;
+use TraderInteractive\NetAcuity\Databases\EdgeDatabase;
+use TraderInteractive\NetAcuity\Databases\PulseDatabase;
+use TraderInteractive\NetAcuity\NetAcuity;
 use DominionEnterprises\Util;
 use GuzzleHttp\Client;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases\Tests;
+namespace TraderInteractive\NetAcuity\Databases\Tests;
 
-use DominionEnterprises\NetAcuity\Databases\EdgeDatabase;
-use DominionEnterprises\NetAcuity\Tests\NetAcuityTestSuite;
+use TraderInteractive\NetAcuity\Databases\EdgeDatabase;
+use TraderInteractive\NetAcuity\Tests\NetAcuityTestSuite;
 
 /**
- * @coversDefaultClass \DominionEnterprises\NetAcuity\Databases\EdgeDatabase
+ * @coversDefaultClass \TraderInteractive\NetAcuity\Databases\EdgeDatabase
  * @covers ::<private>
  */
 class EdgeDatabaseTest extends NetAcuityTestSuite

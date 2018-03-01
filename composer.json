@@ -24,9 +24,9 @@
         "squizlabs/php_codesniffer": "^3.2"
     },
     "autoload": {
-        "psr-4": { "DominionEnterprises\\NetAcuity\\": "src" }
+        "psr-4": { "TraderInteractive\\NetAcuity\\": "src" }
     },
     "autoload-dev": {
-        "psr-4": { "DominionEnterprises\\NetAcuity\\Tests\\": "tests" }
+        "psr-4": { "TraderInteractive\\NetAcuity\\Tests\\": "tests" }
     }
 }

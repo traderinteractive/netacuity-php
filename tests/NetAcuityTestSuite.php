@@ -1,6 +1,6 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Tests;
+namespace TraderInteractive\NetAcuity\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;

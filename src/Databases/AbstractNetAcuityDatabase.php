@@ -1,6 +1,6 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases;
+namespace TraderInteractive\NetAcuity\Databases;
 
 use DominionEnterprises\Util\Arrays;
 use Exception;

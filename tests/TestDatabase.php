@@ -1,8 +1,8 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Tests;
+namespace TraderInteractive\NetAcuity\Tests;
 
-use DominionEnterprises\NetAcuity\Databases\NetAcuityDatabaseInterface;
+use TraderInteractive\NetAcuity\Databases\NetAcuityDatabaseInterface;
 
 class TestDatabase implements NetAcuityDatabaseInterface
 {

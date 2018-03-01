@@ -1,12 +1,12 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases\Tests;
+namespace TraderInteractive\NetAcuity\Databases\Tests;
 
-use DominionEnterprises\NetAcuity\Databases\PulseDatabase;
-use DominionEnterprises\NetAcuity\Tests\NetAcuityTestSuite;
+use TraderInteractive\NetAcuity\Databases\PulseDatabase;
+use TraderInteractive\NetAcuity\Tests\NetAcuityTestSuite;
 
 /**
- * @coversDefaultClass \DominionEnterprises\NetAcuity\Databases\PulseDatabase
+ * @coversDefaultClass \TraderInteractive\NetAcuity\Databases\PulseDatabase
  * @covers ::<private>
  */
 class PulseDatabaseTest extends NetAcuityTestSuite

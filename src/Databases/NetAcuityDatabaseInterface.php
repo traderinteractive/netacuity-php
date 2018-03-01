@@ -1,6 +1,6 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity\Databases;
+namespace TraderInteractive\NetAcuity\Databases;
 
 /**
  * The Net Acuity Database Interface

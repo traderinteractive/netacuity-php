@@ -1,8 +1,8 @@
 <?php
 
-namespace DominionEnterprises\NetAcuity;
+namespace TraderInteractive\NetAcuity;
 
-use DominionEnterprises\NetAcuity\Databases\NetAcuityDatabaseInterface;
+use TraderInteractive\NetAcuity\Databases\NetAcuityDatabaseInterface;
 use DominionEnterprises\Util;
 use Exception;
 
