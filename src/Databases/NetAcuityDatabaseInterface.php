@@ -12,5 +12,5 @@ interface NetAcuityDatabaseInterface
      *
      * @return array The formatted array fetched from the Net Acuity database.
      */
-    function fetch(string $ip);
+    public function fetch(string $ip);
 }

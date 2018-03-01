@@ -1,6 +1,7 @@
 <?php
 
 namespace DominionEnterprises\NetAcuity\Tests;
+
 use DominionEnterprises\NetAcuity\NetAcuity;
 
 /**

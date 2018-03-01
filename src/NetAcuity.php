@@ -14,7 +14,7 @@ final class NetAcuity
     /**
      * @var NetAcuityDatabaseInterface The Net Acuity Database to fetch data from.
      */
-    private $_database;
+    private $database;
 
     /**
      * Create the NetAcuity client.
@@ -25,7 +25,7 @@ final class NetAcuity
      */
     public function __construct(NetAcuityDatabaseInterface $database)
     {
-        $this->_database = $database;
+        $this->database = $database;
     }
 
     /**
@@ -62,6 +62,6 @@ final class NetAcuity
     public function getGeo(string $ip)
     {
         Util::throwIfNotType(['string' => $ip], true);
-        return $this->_database->fetch($ip);
+        return $this->database->fetch($ip);
     }
 }

@@ -17,22 +17,22 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
     /**
      * @var Client The GuzzleHttp Client.
      */
-    protected $_client;
+    protected $client;
 
     /**
      * @var array The translations array for the data set.
      */
-    protected $_translations;
+    protected $translations;
 
     /**
      * @var string The API User Token.
      */
-    protected $_apiUserToken;
+    protected $apiUserToken;
 
     /**
      * @var int The Net Acuity Database ID.
      */
-    protected $_databaseIdentifier;
+    protected $databaseIdentifier;
 
     /**
      * AbstractNetAcuityDatabase constructor.
@@ -43,10 +43,9 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
     public function __construct(
         ClientInterface $client,
         string $apiUserToken
-    )
-    {
-        $this->_client = $client;
-        $this->_apiUserToken = $apiUserToken;
+    ) {
+        $this->client = $client;
+        $this->apiUserToken = $apiUserToken;
     }
 
     /**
@@ -58,18 +57,18 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      */
     public function fetch(string $ip)
     {
-        $queryString = $this->_buildQuery($this->_apiUserToken, $ip);
+        $queryString = $this->buildQuery($this->apiUserToken, $ip);
         $request = new Request('GET', $queryString);
 
         $body = [];
         try {
-            $response = $this->_client->send($request);
+            $response = $this->client->send($request);
             $body = json_decode($response->getBody()->getContents(), true);
         } catch (ClientException $e) {
-            $this->_handleGuzzleException($e);
+            $this->handleGuzzleException($e);
         }
 
-        return $this->_parseBody($body);
+        return $this->parseBody($body);
     }
 
     /**
@@ -79,7 +78,7 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      *
      * @return void
      */
-    protected function _handleGuzzleException(ClientException $e)
+    protected function handleGuzzleException(ClientException $e)
     {
         $response = $e->getResponse();
         $code = $response->getStatusCode();
@@ -101,12 +100,12 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      *
      * @return array The response where the keys are from $fields and the values are from the $response.
      */
-    protected function _parseBody(array $response)
+    protected function parseBody(array $response)
     {
         $responseData = Arrays::get($response, 'response');
 
         $result = [];
-        Arrays::copyIfKeysExist($responseData, $result, $this->_translations);
+        Arrays::copyIfKeysExist($responseData, $result, $this->translations);
 
         return $result;
     }
@@ -117,9 +116,9 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      *
      * @return string The formatted url query string.
      */
-    protected function _buildQuery(string $userToken, string $ip) : string
+    protected function buildQuery(string $userToken, string $ip) : string
     {
         $baseUrl = 'https://usa.cloud.netacuity.com/webservice/query';
-        return "{$baseUrl}?u={$userToken}&dbs={$this->_databaseIdentifier}&ip={$ip}&json=true";
+        return "{$baseUrl}?u={$userToken}&dbs={$this->databaseIdentifier}&ip={$ip}&json=true";
     }
 }
