@@ -2,18 +2,14 @@
 
 namespace TraderInteractive\NetAcuity\Tests;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class NetAcuityTestSuite extends TestCase
 {
-    /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|Client
-     */
-    protected function getMockGuzzleClient() : \PHPUnit_Framework_MockObject_MockObject
+    protected function getMockGuzzleClient() : ClientInterface
     {
         return $this->getMockBuilder(
             '\GuzzleHttp\Client'

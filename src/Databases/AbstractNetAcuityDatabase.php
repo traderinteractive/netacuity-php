@@ -4,7 +4,6 @@ namespace TraderInteractive\NetAcuity\Databases;
 
 use DominionEnterprises\Util\Arrays;
 use Exception;
-use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
@@ -15,7 +14,7 @@ use GuzzleHttp\Psr7\Request;
 abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
 {
     /**
-     * @var Client The GuzzleHttp Client.
+     * @var ClientInterface The GuzzleHttp Client.
      */
     protected $client;
 
