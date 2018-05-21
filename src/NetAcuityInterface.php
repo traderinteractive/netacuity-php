@@ -2,32 +2,11 @@
 
 namespace TraderInteractive\NetAcuity;
 
-use TraderInteractive\NetAcuity\Databases\NetAcuityDatabaseInterface;
-use DominionEnterprises\Util;
-use Exception;
-
 /**
- * A client to access a NetAcuity server for geo-ip lookup.
+ * Contract for NetAcuity api client.
  */
-final class NetAcuity implements NetAcuityInterface
+interface NetAcuityInterface
 {
-    /**
-     * @var NetAcuityDatabaseInterface The Net Acuity Database to fetch data from.
-     */
-    private $database;
-
-    /**
-     * Create the NetAcuity client.
-     *
-     * @param NetAcuityDatabaseInterface $database     The Net Acuity Database to be used.
-     *
-     * @throws Exception
-     */
-    public function __construct(NetAcuityDatabaseInterface $database)
-    {
-        $this->database = $database;
-    }
-
     /**
      * Gets the geo data for the given IP.
      *
@@ -49,6 +28,7 @@ final class NetAcuity implements NetAcuityInterface
      *     @type string $city-code
      *     @type string $continent-code
      *     @type string $two-letter-country
+     *     @type string $internal-code
      *     @type string $area-code
      *     @type string $country-conf
      *     @type string $region-conf
@@ -59,9 +39,5 @@ final class NetAcuity implements NetAcuityInterface
      *     @type string $timezone-name
      * }
      */
-    public function getGeo(string $ip) : array
-    {
-        Util::throwIfNotType(['string' => $ip], true);
-        return $this->database->fetch($ip);
-    }
+    public function getGeo(string $ip) : array;
 }
