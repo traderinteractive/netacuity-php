@@ -2,7 +2,7 @@
 
 namespace TraderInteractive\NetAcuity\Databases;
 
-use DominionEnterprises\Util\Arrays;
+use TraderInteractive\Util\Arrays;
 use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;

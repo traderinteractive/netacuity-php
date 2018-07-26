@@ -4,7 +4,7 @@
 use TraderInteractive\NetAcuity\Databases\EdgeDatabase;
 use TraderInteractive\NetAcuity\Databases\PulseDatabase;
 use TraderInteractive\NetAcuity\NetAcuity;
-use DominionEnterprises\Util;
+use TraderInteractive\Util;
 use GuzzleHttp\Client;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
