@@ -3,7 +3,7 @@
 namespace TraderInteractive\NetAcuity;
 
 use TraderInteractive\NetAcuity\Databases\NetAcuityDatabaseInterface;
-use DominionEnterprises\Util;
+use TraderInteractive\Util;
 use Exception;
 
 /**
