@@ -28,5 +28,9 @@
     },
     "autoload-dev": {
         "psr-4": { "TraderInteractive\\NetAcuity\\Tests\\": "tests" }
+    },
+    "scripts": {
+        "lint": "vendor/bin/phpcs",
+        "test": "vendor/bin/phpunit"
     }
 }
