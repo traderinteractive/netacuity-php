@@ -4,5 +4,7 @@
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <arg name="colors" />
     <arg value="p" />
-    <rule ref="PSR12" />
+    <rule ref="PSR12" >
+        <exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
+    </rule>
 </ruleset>

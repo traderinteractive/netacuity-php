@@ -2,8 +2,8 @@
 
 namespace TraderInteractive\NetAcuity\Databases;
 
+use TraderInteractive\NetAcuity\Exceptions\NetacuityException;
 use TraderInteractive\Util\Arrays;
-use Exception;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;
@@ -14,6 +14,12 @@ use GuzzleHttp\Psr7\Request;
 abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
 {
     /**
+     * @var string
+     * @internal
+     */
+    const DEFAULT_NETACUITY_BASE_URL = 'https://usa.cloud.netacuity.com/webservice/query';
+
+    /**
      * @var ClientInterface The GuzzleHttp Client.
      */
     protected $client;
@@ -22,6 +28,11 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      * @var array The translations array for the data set.
      */
     protected $translations;
+
+    /**
+     * @var string
+     */
+    protected $netacuityBaseUrl;
 
     /**
      * @var string The API User Token.
@@ -36,15 +47,18 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
     /**
      * AbstractNetAcuityDatabase constructor.
      *
-     * @param ClientInterface $client       The injected GuzzleHttp Client.
-     * @param string          $apiUserToken The Net Acuity API User Token.
+     * @param ClientInterface $client           The injected GuzzleHttp Client.
+     * @param string          $apiUserToken     The Net Acuity API User Token.
+     * @param string          $netacuityBaseUrl The base url for the netacuity webservice.
      */
     public function __construct(
         ClientInterface $client,
-        string $apiUserToken
+        string $apiUserToken,
+        string $netacuityBaseUrl = self::DEFAULT_NETACUITY_BASE_URL
     ) {
         $this->client = $client;
         $this->apiUserToken = $apiUserToken;
+        $this->netacuityBaseUrl = $netacuityBaseUrl;
     }
 
     /**
@@ -52,7 +66,7 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      *
      * @return array The formatted data set.
      *
-     * @throws Exception On failure to send a Guzzle request.
+     * @throws NetacuityException On failure to send a Guzzle request.
      */
     public function fetch(string $ip)
     {
@@ -73,7 +87,7 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
     /**
      * @param ClientException $e The thrown exception for handling.
      *
-     * @throws Exception A formatted exception masking the API User Token in the event that it becomes invalid.
+     * @throws NetacuityException A formatted exception masking the API User Token in the event that it becomes invalid.
      *
      * @return void
      */
@@ -83,13 +97,13 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
         $code = $response->getStatusCode();
 
         if ($code === 403) {
-            throw new Exception('NetAcuity API rejected the provided api user token.', $code);
+            throw new NetacuityException('NetAcuity API rejected the provided api user token.', $code);
         }
 
         $error = json_decode($response->getBody()->getContents(), true);
         $reason = Arrays::getNested($error, 'error.message');
 
-        throw new Exception("NetAcuity API rejected the request, Reason: {$reason}", $code);
+        throw new NetacuityException("NetAcuity API rejected the request, Reason: {$reason}", $code);
     }
 
     /**
@@ -117,7 +131,6 @@ abstract class AbstractNetAcuityDatabase implements NetAcuityDatabaseInterface
      */
     protected function buildQuery(string $userToken, string $ip): string
     {
-        $baseUrl = 'https://usa.cloud.netacuity.com/webservice/query';
-        return "{$baseUrl}?u={$userToken}&dbs={$this->databaseIdentifier}&ip={$ip}&json=true";
+        return "{$this->netacuityBaseUrl}?u={$userToken}&dbs={$this->databaseIdentifier}&ip={$ip}&json=true";
     }
 }

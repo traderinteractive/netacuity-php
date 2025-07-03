@@ -3,6 +3,7 @@
 namespace TraderInteractive\NetAcuity\Databases\Tests;
 
 use TraderInteractive\NetAcuity\Databases\EdgeDatabase;
+use TraderInteractive\NetAcuity\Exceptions\NetacuityException;
 use TraderInteractive\NetAcuity\Tests\NetAcuityTestSuite;
 use Exception;
 
@@ -154,6 +155,7 @@ final class AbstractNetAcuityDatabaseTest extends NetAcuityTestSuite
      */
     public function getGeoNonStringIp()
     {
+        $this->expectException(NetacuityException::class);
         $this->expectExceptionMessage('NetAcuity API rejected the request, Reason: Invalid IP (1)');
         $this->expectExceptionCode(400);
 
@@ -171,6 +173,7 @@ final class AbstractNetAcuityDatabaseTest extends NetAcuityTestSuite
      */
     public function netAcuityUserTokenInvalid()
     {
+        $this->expectException(NetacuityException::class);
         $this->expectExceptionMessage('NetAcuity API rejected the provided api user token.');
         $this->expectExceptionCode(403);
 

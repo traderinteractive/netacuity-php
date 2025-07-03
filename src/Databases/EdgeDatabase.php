@@ -12,12 +12,16 @@ final class EdgeDatabase extends AbstractNetAcuityDatabase
     /**
      * EdgeDatabase constructor.
      *
-     * @param ClientInterface $client       The injected GuzzleHttp Client.
-     * @param string          $apiUserToken The Net Acuity API User Token.
+     * @param ClientInterface $client           The injected GuzzleHttp Client.
+     * @param string          $apiUserToken     The Net Acuity API User Token.
+     * @param string          $netacuityBaseUrl The base url for the netacuity webservice.
      */
-    public function __construct(ClientInterface $client, string $apiUserToken)
-    {
-        parent::__construct($client, $apiUserToken);
+    public function __construct(
+        ClientInterface $client,
+        string $apiUserToken,
+        string $netacuityBaseUrl = self::DEFAULT_NETACUITY_BASE_URL
+    ) {
+        parent::__construct($client, $apiUserToken, $netacuityBaseUrl);
 
         $this->databaseIdentifier = 4;
 

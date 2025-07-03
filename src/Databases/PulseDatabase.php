@@ -6,9 +6,17 @@ use GuzzleHttp\ClientInterface;
 
 class PulseDatabase extends AbstractNetAcuityDatabase
 {
-    public function __construct(ClientInterface $client, string $apiUserToken)
-    {
-        parent::__construct($client, $apiUserToken);
+    /**
+     * @param ClientInterface $client           The injected GuzzleHttp Client.
+     * @param string          $apiUserToken     The Net Acuity API User Token.
+     * @param string          $netacuityBaseUrl The base url for the netacuity webservice.
+     */
+    public function __construct(
+        ClientInterface $client,
+        string $apiUserToken,
+        string $netacuityBaseUrl = self::DEFAULT_NETACUITY_BASE_URL
+    ) {
+        parent::__construct($client, $apiUserToken, $netacuityBaseUrl);
 
         $this->databaseIdentifier = 26;
 
